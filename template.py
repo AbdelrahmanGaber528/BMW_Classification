@@ -5,8 +5,6 @@ import logging
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s:')
 
 
-
-
 list_of_files = [
     f"src/__init__.py",
     f"src/components/__init__.py",
@@ -19,6 +17,7 @@ list_of_files = [
     f"src/entity/config_entity.py",
     f"src/constants/__init__.py",
     "config/config.yaml",
+    "data/",
     "params.yaml",
     "schema.yaml",
     "main.py",
@@ -32,8 +31,8 @@ list_of_files = [
 ]
 
 
-
 for filepath in list_of_files:
+    
     filepath = Path(filepath)
 
     filedir, filename = os.path.split(filepath)

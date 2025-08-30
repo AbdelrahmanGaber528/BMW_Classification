@@ -5,7 +5,7 @@ with open("README.md" , "r",encoding="utf-8") as f :
 
 __version__ = "0.0.0"
 
-REPO_NAME = "End-ToEnd_MachineLearning_Project"
+REPO_NAME = "BMW_Classification"
 AUTHOR_USER_NAME = "abdelrahmangaber528"
 SRC_REPO = "src"
 AUTHOR_EMAIL = "abdelrahman.gaber.hamdy@gmail.com"

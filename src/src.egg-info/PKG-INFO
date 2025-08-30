@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: src
+Version: 0.0.0
+Summary: Implement for BMW Classification 
+Home-page: https://github.com/abdelrahmangaber528/End-To-End-ML-Project
+Author: abdelrahmangaber528
+Author-email: abdelrahman.gaber.hamdy@gmail.com
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: home-page
+Dynamic: summary
+
+# End-ToEnd_MachineLearning_Project
+### Project from code to production
+
+
+```bash
+conda create -n BMW python=3.12 -y
+```
+
+```bash
+conda activate BMW 
+```
+
+```bash
+pip install -r  requirements.txt
+```
+

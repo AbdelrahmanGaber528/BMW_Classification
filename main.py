@@ -1,5 +1,4 @@
-from src.logging import logger
+from src import logger
 
-
-
-logger.info("Custom Logging")
+logger = logger()
+logger.info("Test src init")

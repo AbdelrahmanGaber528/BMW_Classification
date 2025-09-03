@@ -1,0 +1,15 @@
+COLUMNS:
+  Model: object
+  Year: int64
+  Region: object
+  Color: object
+  Fuel_Type: object
+  Transmission: object
+  Engine_Size_L: float64
+  Mileage_KM: int64
+  Price_USD: int64
+  Sales_Volume: int64
+
+TARGET_COLUMN:
+  name: Sales_Classification
+  dtype: object

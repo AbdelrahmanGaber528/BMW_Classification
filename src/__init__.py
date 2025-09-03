@@ -1,30 +1,17 @@
-import os 
+from .logger import *
 import sys
-import logging
 
-# logging 
+class customException(Exception):
+    
+    def __init__(self, error_message, error_detail: sys):
+        super().__init__(error_message)
+        self.error_message = self._get_detailed_error_message(error_message, error_detail)
 
-def logger():
-
-    logging_str = "[%(asctime)s:%(levelname)s:%(module)s:%(message)s]"
-
-    log_dir = "logs"
-
-    log_filepath = os.path.join(log_dir , "running_log.log")
-
-    os.makedirs(log_dir , exist_ok=True)
-
-    logging.basicConfig(
-        level=logging.INFO,
-        format=logging_str,
-
-        handlers=[
-            logging.FileHandler(log_filepath),
-            logging.StreamHandler(sys.stdout)
-        ]
-    )
-
-
-    return logging.getLogger("BMW Logger")
-
-
+    def _get_detailed_error_message(self, error_message, error_detail: sys):
+        _, _, exc_tb = error_detail.exc_info()
+        if exc_tb is not None:
+            file_name = exc_tb.tb_frame.f_code.co_filename
+            line_number = exc_tb.tb_lineno
+            return f"Error occurred in script: {file_name} at line {line_number}: {error_message}"
+        else:
+            return f"Error: {error_message}"

@@ -16,7 +16,7 @@ setuptools.setup(
     version=__version__,
     author=AUTHOR_USER_NAME,
     author_email=AUTHOR_EMAIL,
-    description="Implement for BMW Classification ",
+    description="whether a used BMW will fall into a 'High' or 'Low' price class, helping a dealer quickly assess its value.",
     long_description=long_description,
     long_description_content = "text/markdown",
     url=f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}",

@@ -127,15 +127,6 @@ jupyter notebook notebooks/
 - Model performance metrics
 - Interactive visualizations
 
-## 📈 Model Performance
-
-| Metric | Value |
-|--------|-------|
-| Accuracy | 94.2% |
-| Precision | 93.8% |
-| Recall | 94.5% |
-| F1-Score | 94.1% |
-
 ## 🏗️ Architecture
 
 ### MLOps Pipeline Flow:

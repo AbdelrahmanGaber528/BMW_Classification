@@ -34,10 +34,8 @@ BMW_Classification/
 ├── setup.py
 ├── .gitignore
 ├── notebooks/
-│   ├── 01_data_exploration.ipynb
-│   ├── 02_data_preprocessing.ipynb
-│   ├── 03_model_training.ipynb
-│   └── 04_model_evaluation.ipynb
+│   ├── preprocess_train_test.ipynb
+│   └── EDA.ipynb
 ├── src/
 │   ├── __init__.py
 │   ├── components/

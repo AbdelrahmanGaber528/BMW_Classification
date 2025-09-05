@@ -36,12 +36,6 @@ BMW_Classification/
 ├── requirements.txt
 ├── setup.py
 ├── .gitignore
-├── .streamlit/
-│   └── config.toml
-├── data/
-│   ├── raw/
-│   ├── processed/
-│   └── external/
 ├── notebooks/
 │   ├── 01_data_exploration.ipynb
 │   ├── 02_data_preprocessing.ipynb
@@ -57,26 +51,19 @@ BMW_Classification/
 │   │   └── model_evaluation.py
 │   ├── pipelines/
 │   │   ├── __init__.py
-│   │   ├── training_pipeline.py
 │   │   └── prediction_pipeline.py
 │   ├── utils/
 │   │   ├── __init__.py
 │   │   ├── common.py
-│   │   ├── logger.py
+│   │── logger.py
 │   │   └── exception.py
 │   └── config/
 │       ├── __init__.py
 │       └── configuration.py
-├── models/
-│   ├── trained_models/
-│   └── model_artifacts/
 ├── logs/
-├── tests/
-│   ├── unit/
-│   └── integration/
 ├── artifacts/
 ├── app.py
-└── Dockerfile
+├── main.py
 ```
 
 ## 🚀 Installation & Setup
@@ -84,7 +71,7 @@ BMW_Classification/
 ### Prerequisites
 - Python 3.8 or higher
 - Git
-- Virtual environment (recommended)
+- Virtual environment
 
 ### Step 1: Clone the Repository
 ```bash
@@ -95,7 +82,7 @@ cd BMW_Classification
 ### Step 2: Create Virtual Environment
 ```bash
 # Using conda
-conda create -n bmw-classification python=3.8
+conda create -n bmw-classification python=3.12
 conda activate bmw-classification
 
 # Using venv
@@ -108,34 +95,15 @@ source bmw-env/bin/activate  # On Windows: bmw-env\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### Step 4: Setup Configuration
-```bash
-# Create necessary directories
-mkdir -p data/{raw,processed,external}
-mkdir -p logs
-mkdir -p artifacts
-mkdir -p models/{trained_models,model_artifacts}
-```
-
 ## 📊 Usage
 
 ### Training Pipeline
 ```bash
-# Run the complete training pipeline
-python src/pipelines/training_pipeline.py
 
-# Or run individual components
-python src/components/data_ingestion.py
-python src/components/data_transformation.py
-python src/components/model_trainer.py
+# RUN 
+cd BMW_CLASSIFICATION
+python3 main.py
 ```
-
-### Prediction Pipeline
-```bash
-# Run predictions on new data
-python src/pipelines/prediction_pipeline.py --input_path data/new_bmw_images/
-```
-
 ### Streamlit Application
 ```bash
 # Run the web application locally
@@ -198,51 +166,6 @@ jupyter notebook notebooks/
 - API endpoints for model serving
 - Monitoring and logging infrastructure
 
-## 🔧 Configuration
-
-### Environment Variables
-```bash
-# .env file
-MODEL_PATH=models/trained_models/
-DATA_PATH=data/processed/
-LOG_LEVEL=INFO
-STREAMLIT_PORT=8501
-```
-
-### Streamlit Configuration
-```toml
-# .streamlit/config.toml
-[theme]
-primaryColor = "#1f77b4"
-backgroundColor = "#ffffff"
-secondaryBackgroundColor = "#f0f2f6"
-textColor = "#262730"
-```
-
-## 🧪 Testing
-
-```bash
-# Run all tests
-pytest tests/
-
-# Run specific test categories
-pytest tests/unit/
-pytest tests/integration/
-
-# Run with coverage
-pytest --cov=src tests/
-```
-
-## 📝 Logging
-
-The project implements comprehensive logging:
-- **Info Level**: General application flow
-- **Debug Level**: Detailed debugging information
-- **Warning Level**: Potential issues and warnings
-- **Error Level**: Error conditions and exceptions
-
-Logs are stored in the `logs/` directory with rotation and archival.
-
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -257,10 +180,6 @@ Logs are stored in the `logs/` directory with rotation and archival.
 - Update documentation for API changes
 - Use meaningful commit messages
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 🙏 Acknowledgments
 
 - BMW AG for inspiration and domain expertise
@@ -274,14 +193,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - GitHub: [@AbdelrahmanGaber528](https://github.com/AbdelrahmanGaber528)
 - LinkedIn: [Your LinkedIn Profile]
 - Email: [Your Email Address]
-
-## 🔄 Version History
-
-- **v1.0.0** - Initial release with basic classification
-- **v1.1.0** - Added MLOps pipeline and logging
-- **v1.2.0** - Production deployment and monitoring
-- **v1.3.0** - Streamlit application and web interface
-
----
 
 ⭐ **Star this repository if you found it helpful!**

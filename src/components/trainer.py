@@ -18,7 +18,7 @@ class ModelTrainer:
     def __init__ (self, model_trainer_config : ModelTrainerConfig):
         self.model_trainer_config = model_trainer_config
 
-    def train(self, X_train, y_train , X_test , y_test):
+    def train(self, X_train,  X_test ,y_train , y_test):
 
         try:
 
@@ -36,7 +36,7 @@ class ModelTrainer:
             params = self.model_trainer_config.params
             
             best_model, model_list, evaluate_report = evaluate_model(
-                models, params, X_train, y_train, X_test, y_test
+                models, params, X_train, X_test, y_train, y_test
             )
             
             logging.info(f"Best model: {best_model['model_name']} with F1 score: {best_model['f1']}")

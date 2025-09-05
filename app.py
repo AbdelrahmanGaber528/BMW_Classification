@@ -1,7 +1,12 @@
-import streamlit as st 
-import joblib
-from src.constants import MODEL_PATH
+import streamlit as st
+from src.pipeline.predict import PredictPipeline
 import pandas as pd
+
+
+
+
+pipeline = PredictPipeline()
+
 
 st.set_page_config(
     page_title="BMW App",
@@ -9,9 +14,6 @@ st.set_page_config(
 )
 
 st.header("BMW Features")
-
-# load model
-model = joblib.load(MODEL_PATH)
 
 # choose for catggorical 
 model_types = ["5 Series","i8","X3","7 Series","M5","3 Series","X1","M3","X5","i3","X6"]
@@ -46,13 +48,12 @@ if submitted:
     # Put inputs into DataFrame
     input_data = pd.DataFrame([[Model,year , region , color , fuel_type , transmission , engine_size , mileage, price , sales]],
                               columns=all_columns)
-
-    # Predict
-    prediction = model.predict(input_data)[0]
     
 
-    prediction_text = "Low" if prediction == 0 else "High"
-    color = "#ff4b4b" if prediction == 0 else "#4caf50" # red for low, green for high
+    # Predict
+    prediction = pipeline.predict(input_data)
+
+    color = "#ff4b4b" if prediction == "Low" else "#4caf50" # red for low, green for high
 
     st.markdown(
         f"""
@@ -80,7 +81,7 @@ if submitted:
                 display: block; 
                 line-height: 1;
             ">
-                {prediction_text}
+                {prediction}
             </span>
         </div>
         """,

@@ -113,8 +113,8 @@ class DataTransformation:
 
             return (
                 X_train,
-                y_train,
                 X_test,
+                y_train,
                 y_test
             )
 

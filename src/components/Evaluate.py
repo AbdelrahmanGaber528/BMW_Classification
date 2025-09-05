@@ -3,7 +3,7 @@ from sklearn.model_selection import RandomizedSearchCV
 import sys
 from src import customException
 
-def evaluate_model(models, params, x_train, y_train, x_test,  y_test):
+def evaluate_model(models, params, x_train,  x_test, y_train,  y_test):
 
     model_list = []
     evaluate_report = {}

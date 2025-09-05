@@ -1,5 +1,6 @@
 import streamlit as st 
 import joblib
+from src.constants import MODEL_PATH
 import pandas as pd
 
 st.set_page_config(
@@ -10,7 +11,7 @@ st.set_page_config(
 st.header("BMW Features")
 
 # load model
-model = joblib.load("src/model/model.pkl")
+model = joblib.load(MODEL_PATH)
 
 # choose for catggorical 
 model_types = ["5 Series","i8","X3","7 Series","M5","3 Series","X1","M3","X5","i3","X6"]

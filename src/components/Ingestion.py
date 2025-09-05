@@ -1,4 +1,3 @@
-import os
 import sys
 import pandas as pd
 from src.entity.config_entity import DataIngestionConfig
@@ -14,8 +13,10 @@ class DataIngestion:
 
     def initiate_data_ingestion(self):
         try:
+            logging.info("Starting data ingestion")
+
             # Read the raw data CSV
-            p = "../../notebook/BMW_Car_Sales_Classification.csv"
+            p = self.config.data_path
             df = pd.read_csv(p)
             logging.info(f"Read data from {p } with shape {df.shape}")
 
@@ -25,7 +26,7 @@ class DataIngestion:
 
             #save in path artifact from my data
             df.to_csv(self.config.local_data_file,index=False)
-            logging.info(f"Saved raw data to {self.config.local_data_file}")
+            logging.info(f"Saved data to {self.config.local_data_file}")
         
         except Exception as e:
             logging.error("Error in data ingestion")

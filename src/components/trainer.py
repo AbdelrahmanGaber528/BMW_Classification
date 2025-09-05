@@ -1,10 +1,9 @@
 import sys
 import joblib
-from sklearn.linear_model import LogisticRegression , SVC  , AdaBoostClassifier , KNeighborsClassifier
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
 from xgboost import XGBClassifier
-from catboost import CatBoostClassifier
 from src.components.Evaluate import evaluate_model
 from src import customException
 from src.entity.config_entity import ModelTrainerConfig 
@@ -24,13 +23,9 @@ class ModelTrainer:
 
             models = {
                 "LogisticRegression": LogisticRegression(),
-                "DecisionTreeClassifier": DecisionTreeClassifier(),
-                "SVC": SVC(),
                 "RandomForestClassifier": RandomForestClassifier(),
-                "AdaBoostClassifier": AdaBoostClassifier(),
                 "KNeighborsClassifier": KNeighborsClassifier(),
-                "XGBClassifier": XGBClassifier(),
-                "CatBoostClassifier": CatBoostClassifier()
+                "XGBClassifier": XGBClassifier()
             }
 
             params = self.model_trainer_config.params
@@ -40,10 +35,10 @@ class ModelTrainer:
             )
             
             logging.info(f"Best model: {best_model['model_name']} with F1 score: {best_model['f1']}")
-            
-            
-            joblib.dump(best_model['best_model'], self.model_trainer_config.model_path)
-            logging.info(f"Best model saved at {self.model_trainer_config.model_path}")
+
+            # Save the best model to the  path
+            joblib.dump(best_model['best_model'], self.model_trainer_config.model_name)
+            logging.info(f"Best model saved at {self.model_trainer_config.model_name}")
             return best_model, model_list, evaluate_report
         
         except Exception as e:

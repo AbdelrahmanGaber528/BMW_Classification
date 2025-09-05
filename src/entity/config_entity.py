@@ -25,6 +25,6 @@ class ModelTrainerConfig:
     root_dir: Path
     train_data_path: Path
     test_data_path: Path
-    model_path: Path
+    model_name: Path
     params: Dict[str, Any]
     target_column: str

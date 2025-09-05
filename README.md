@@ -17,16 +17,13 @@ The BMW Classification Production Pipeline is an end-to-end machine learning pro
 
 ## 🛠️ Tech Stack
 
-- **Programming Language**: Python 3.8+
-- **Machine Learning**: Scikit-learn, TensorFlow/PyTorch
+- **Programming Language**: Python 3.12
+- **Machine Learning**: Scikit-learn
 - **Web Framework**: Streamlit
 - **Data Processing**: Pandas, NumPy
 - **Visualization**: Matplotlib, Seaborn, Plotly
-- **MLOps**: MLflow, DVC (Data Version Control)
 - **Deployment**: Streamlit Cloud
 - **Logging**: Python Logging, Custom Logger
-- **Testing**: Pytest
-- **Code Quality**: Black, Flake8, Pre-commit hooks
 
 ## 📁 Project Structure
 
